@@ -1,0 +1,108 @@
+## hospital laboratory systems
+##GROUP SHOULD CONSIDER TRACKING VERY IMPORTANT
+
+
+##Take or receive lab request
+##Take the apppropriate sample(stool,blood,urine etc) for the test
+##Test is being performed on the sample
+##Test results are generated
+##Print out results
+import datetime 
+## VARAIBLE
+patientlist={}
+test=""
+
+
+##STEP ONE 
+
+def patient_record :
+	print "+--------------------------------------------------+"
+	print "     	PATIENT  DATA  QUERY					"
+	print "+--------------------------------------------------+"
+	
+	print "****ENTER PATIENT NAME ****"
+	pname=raw_input(">")
+	print ""
+	print "*** ENTER PATIENT ID 	**"
+	pid=input(">")
+	
+	print "* please enter the test to be be conducted *"
+	tests=raw_input(">")
+	##adding patient to database
+	patientlist[pname]="""patient id: %r/track id :%r""" 
+	## NOTE TRACKING ID IS REPORT GENERATED ID ,IE WHAT WOULD BE REFERRED TO , TO FIND THE REPORT 
+	## ITS A COMBINATION OF PATIENT ID AND DATE .
+	now = datetime.datetime.now()
+	d=now.date()
+	## NEED TO CONVERT DATE OBJECT TO TYPE INT TO COMBINE WITH PID VARAIBLE
+	trackid=
+##STEP TWO
+print """
+
+""""
+##NEED MORE INFORMATION ABOUT THE SAMPLE TAKEN TO ANAYLSE
+	
+##STEP three
+print "+----------------------------------------------------+"
+print "					TEST 	PROFILE
+print "+----------------------------------------------------+"
+fod=open("a.txt','w')
+fod.write("*******GENERATED TEST SLIP*******")
+fod.close()
+print " "
+
+
+while quit==1:
+fod=open("a.txt","w")
+print " to quit enter 1 at /n **quit > **below "
+print "*** ENTER TEST NAME ***"
+testname=raw_input(">")
+print "*** ENTER RESULT """
+testresult=raw_input(">")
+fod.write(testname, testresult)
+fod.write("\n")
+print "ENTER 1 TO QUIT 2 TO ADD MORE TEST"
+quit=input(">")
+
+
+
+	
+	print "+---------------------------------------------------+"
+	print "		GENERATOR PATIENT REPORT AND TRACKING ID 		"
+	print "+---------------------------------------------------+"
+	
+
+	##REPORT
+	print """
+	PATIENT NAME : %r							PATIENT ID : %r				
+	TRACK ID : %r
+	----------------------------------------------------
+			SAMPLES TAKEN 				
+	----------------------------------------------------
+	BLOOD SAMPLE:
+	Amount : &r
+	sample label : &r
+	operation performed :% r
+	URINE SAMPLE:
+	amount : 
+	sample label :
+	operation performed :
+
+	MORE SPECIFIC TEST HERE **
+	....
+	......
+	....
+	--------------
+	TEST CONDUCTED
+	--------------
+	%r
+	""" %(pname,pid,testresults)
+	
+
+
+
+
+
+
+
+
