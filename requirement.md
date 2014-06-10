@@ -2,7 +2,7 @@ USE CASE
 --------
 
 -Doctors request test 
-laboratory techinician input patient details
+-laboratory techinician input patient details
 -laboratary techinician enters patient results
 -doctors recieves the results
 
