@@ -1,0 +1,81 @@
+
+package stdio.gh;
+
+    import java.util.Scanner;
+/**
+ *
+ * @author MR.WIAFE
+ */
+public class basicMethod {
+    
+    
+    String patientId,patientName,dateoftest,testName,testSample;
+    int quantityofsample = 1;
+    boolean testResult = false;
+    String results,testResultsDetails;
+    
+    public basicMethod(String id, String name,String date){
+        patientId = id;
+        patientName = name;
+        dateoftest = date;
+       
+    }
+    
+    public void sample(){
+        System.out.println("Enter the name of Lab test :");
+        Scanner info1 = new Scanner(System.in);
+        testSample = info1.nextLine();
+        System.out.println("Enter the name of sample taken :");
+        Scanner info2 = new Scanner(System.in);
+        testSample = info2.nextLine();
+        System.out.println("Enter the quantity of sample taken :");
+        Scanner info3 = new Scanner(System.in);
+        quantityofsample = info3.nextInt();
+    }
+    
+    public void testResults(){
+        String details;
+        System.out.println("Enter test result 'Positive/Negative'");
+        Scanner info1 = new Scanner(System.in);
+         results = info1.nextLine();
+        
+        if(results.equals("positive")||results.equals("POSITIVE")||results.equals("Positive")){
+            
+        testResult = true;
+        results = "POSITIVE";
+        
+        System.out.println("Enter test Results Details : ");
+        Scanner info2 = new Scanner(System.in);
+        details = info2.nextLine(); 
+        testResultsDetails = details;
+        }
+        else{
+        testResult = false;
+         results = "NEGATIVE";
+        System.out.println("Enter test Results Details :");
+        Scanner info2 = new Scanner(System.in);
+        details = info2.nextLine();  
+        testResultsDetails = details;          
+            
+        }
+        System.out.println(""); 
+                
+    }
+    
+    public void resultGenerator(){
+        System.out.println("TEST REPORT");
+        System.out.println("------------");
+        System.out.println("");
+        
+        
+        System.out.println("PATIENT ID :      \t" + patientId);
+        System.out.println("PATIENT NAME :  \t" + patientName);
+        System.out.println("DATE OF TEST :  \t" + dateoftest);
+        System.out.println("PATIENT TEST TYPE :  \t" + testName);
+        System.out.println("TEST RESULTS :  \t" + results);
+        System.out.println("TEST RESULTS DETAILS : \t" + testResultsDetails);
+    }
+    
+    
+    
+}
