@@ -10,10 +10,13 @@
 import datetime 
 ## VARAIBLE
 patientlist={}
+## CHANCE OF CREATING A DICTIONARY THAT HAS KEY PATIENT ID AND THE VALUE TO BE EQUAL TO 
+## NAME AND TRACKING ID 
 test=""
 
 
 ##STEP ONE 
+## IDEA OF THIS STEP IS TO CREATE A TRACKING ID FOR EACH LAB REQUEST
 
 def patient_record :
 	print "+--------------------------------------------------+"
@@ -66,6 +69,9 @@ quit=input(">")
 
 
 
+
+
+
 	
 	print "+---------------------------------------------------+"
 	print "		GENERATOR PATIENT REPORT AND TRACKING ID 		"
@@ -84,9 +90,9 @@ quit=input(">")
 	sample label : &r
 	operation performed :% r
 	URINE SAMPLE:
-	amount : 
-	sample label :
-	operation performed :
+	amount : $r
+	sample label : %r
+	operation performed :%r 
 
 	MORE SPECIFIC TEST HERE **
 	....
@@ -95,8 +101,9 @@ quit=input(">")
 	--------------
 	TEST CONDUCTED
 	--------------
-	%r
-	""" %(pname,pid,testresults)
+	GENERATING RESULT HERE 
+%r
+""" %(pname,pid,testresults,bamt,bid,bpf,uamt,uid,upf)
 	
 
 
