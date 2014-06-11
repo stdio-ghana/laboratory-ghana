@@ -12,4 +12,4 @@ Tests
 -- Output testing
 
 *To test whether the report generated is the correct/expected report.
-*check for the existence of the data (Database or Text file)  file to be saved  to. 
+*check for the existence of the data file (Database or Text file) to be saved  to. 
