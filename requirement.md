@@ -2,8 +2,11 @@ USE CASE
 --------
 
 -1.Doctors request test 
+
 -2.laboratory techinician input patient details
+
 -3.laboratary techinician enters patient results
+
 -4.doctors recieves the results
 
 Non functional requirment 
