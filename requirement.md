@@ -23,7 +23,7 @@ Functional requirement
 
 -laboratory techinician must be able to enter the results of various tests carried out 
 
--Software must be able to generate report based on the data input
+-Software must be able to generate report based on the data input 
 
 
 
