@@ -10,7 +10,7 @@ Non functional requirment
 -------------------------
 
 -the softwares must work on python 3 interpreter
--Software must run be able to on every operating system
+-Software must  be able to run on every operating system
 
 Functional requirement 
 ----------------------
