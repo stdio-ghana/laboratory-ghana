@@ -14,7 +14,7 @@ Algorithm
 
 1.  Take or receive lab request
 2.  Take the apppropriate sample(stool,blood,urine etc) for the test
-3.  Test is being performed on the sample
-4.  Test results are generated 
-5.  Print out results
+3.  Test being performed on the sample
+4.  Enter Test results  
+5.  Print out report
 
