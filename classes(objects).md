@@ -3,7 +3,7 @@ CLASSES
 
 1. LAB-TECH
 ------------
--- PROPERTIES
+-- Properties
 * ID
 * Name
 * Schedule
