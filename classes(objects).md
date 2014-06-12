@@ -16,7 +16,7 @@ CLASSES
 
 2. PATIENT
 ----------
--- PROPERTIES
+-- Properties
 * ID
 * Name
 * Age
