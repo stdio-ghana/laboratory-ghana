@@ -1,0 +1,43 @@
+from Tools.Scripts.ftpmirror import raw_input
+
+__author__ = 'Richard'
+
+import time
+
+
+class LaboratoryClass:
+
+    def identification(self):
+
+        id = (raw_input("please enter your name "))
+
+        password = (raw_input("please enter your password "))
+
+
+        if id == 'Richard' and password == '12345':
+
+            print('welcome Richard')
+
+        elif id == 'seth' and password == '12345':
+
+            print ('welcome seth')
+
+        else:
+
+            print ('you are not an authorized user')
+
+
+
+
+    def schedule(self):
+
+        sched = str(input('enter your schedule'))
+
+
+
+
+samuel = LaboratoryClass()
+
+samuel.identification()
+
+
