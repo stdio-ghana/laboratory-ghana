@@ -1,0 +1,93 @@
+            
+            
+__author__ = 'madibalive'
+
+from getpass import _raw_input
+from datetime import date
+from random import randint
+
+
+class LabTest():
+    def __init__(self, fod):
+        try:
+            self.fod = fod
+            fod = open("c:\python\test_folder", "w")
+
+            fod.write("""
+         --------------------------------------
+                    GENERATED TEST REPORT
+         -------------------------------------- /n
+         """)
+        except IOError:
+            print("I/O ERROR")
+            exit()
+
+    def gen_id(self):
+        test_id = ("%r%r%r" % (randint(1, 9), randint(1, 9), randint(1, 9) ) )
+        self.fod.append("TEST ID:" + test_id + "/n")
+        print("TEST ID AUTO GENERATED")
+        return test_id
+
+    def gen_date(self):
+        test_date = str(date.today())
+        print("DATE OF TEST AUTO GENERATED")
+        self.fod.append("DATE OF TEST: " + " " + test_date + "/n")
+        return test_date
+
+    def cost_test(self, ):
+        try:
+            print("enter cost of test")
+            cost = input(">")
+            self.fod.append("TOTAL COST OF TEST : " + " " + cost + "/n")
+        except ValueError:
+            print("PLEASE ENTER A NUMBER")
+            # continue()
+
+        print("COST UPDATED")
+
+    def get_test_report(self):
+        var = self.fod
+        var.append("------------------------------/n")
+        try:
+            print("ENTER TYPE OF TEST ")
+            main_test = _raw_input(">")
+            var.append("MAIN TEST :" + " " + main_test + "/n")
+
+        except ValueError:
+            print("Enter a string ")
+            # continue need to get it workout of a loop
+
+        var.append("-----------------------------/n")
+        button = 0
+
+        while button == 0:
+            try:
+                print("ENTER TEST PERFORMED ")
+                kind = _raw_input(">")
+                var.append("TEST TYPE :" + " " + kind)
+                var.append(" ")
+                print("ENTER RESULT OF TEST")
+                value = _raw_input(">")
+                var.append("RESULT :" + " " + value)
+                var.append("/n")
+                button = input("ENTER 1 TO QUIT O TO CONTINUE")
+
+            except ValueError:
+                print("ENTER A STRING ")
+                continue
+
+        var.append("------------------------------/n")
+
+    def report_gen(self):
+        self.fod.append("""
+        +----------------------------------------+
+                   PROCESS COMPLETE
+        +----------------------------------------+
+        """)
+        self.fod.close()
+        try:
+            self.fod = open("c:\python\test_folder", "r")
+            self.fod.read()
+        except IOError:
+            print("I/O ERROR ,CANNOT OPEN FILE")
+            # continue part need to work outside loop
