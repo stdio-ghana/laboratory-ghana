@@ -1,0 +1,227 @@
+__author__ = 'MR.WIAFE'
+
+import time,sys
+
+class Patients():
+
+
+    def __init__(self,id,name,age):
+        self.id = id
+        self.name = str(name)
+        self.age = age
+        self.teststatus = "incomplete"
+        self.resultRetivalDate = 'Not yet'
+
+    def arrival(self):
+        self.patientArrival = time.strftime("%c")
+
+
+    def payment(self,payments):
+        self.payments = float(payments)
+
+    def testRequest(self,testReq):
+        self.testReq = testReq
+
+    def testResulRetrival(self):
+        self.resultRetivalDate = time.strftime("%c")
+
+    def patientdetails(self):
+        print("Patient ID : \t\t\t%s"%self.id,
+                "\nPatient Name :\t\t\t%s"%self.name,
+                "\nAge :\t\t\t\t\t%s" %self.age,
+                "\nDate of test Request :\t%s"%self.patientArrival,
+                "\nTest Name : \t\t\t%s"%self.testReq,
+                "\nTest Cost : \t\t\t%s"%self.payments,
+                "\nTest Status: \t\t\t%s"%self.teststatus,
+                "\nDate of Test Retrival:  %s\n"%self.resultRetivalDate)
+
+
+class LaboratoryClass:
+
+    def __init__(self):
+        try:
+            trials = 0
+
+            while trials <= 3:
+
+                id = str(input("please enter your name "))
+
+                password = str(input("please enter your password "))
+
+
+                if id == 'Richard' and password == '12345':
+
+                    print('welcome Richard')
+
+                    break
+
+                elif id == 'seth' and password == '12345':
+
+                    print('welcome seth')
+
+                    break
+
+                else:
+
+                    print('you are not an authorized user')
+
+                trials += 1
+        except:
+            print('you are not recognised')
+
+    def logOut(self):
+        y = int(input("Are you sure you want to Log out?\nEnter 1 for Yes or 2 for No\n"))
+        if y in range(1,3):
+            if y == 1:
+                self.logoutTime = time.strftime("%c")
+                sys.exit(0)
+            elif y == 2:
+                home()
+        print("invalid input")
+        home()
+
+class LabTests():
+
+    def __init__(self,name):
+        self.name = name
+        self.testId = 'null'
+        self.teststatus = "incomplete"
+        self.testDuration = int(1)
+        self.resultRetrivalDate = 'Not yet'
+
+    def testDate(self):
+        self.date = time.strftime("%d/%m/%y")
+
+    def sampleType(self,sample):
+        self.sample = sample
+
+    def sampleQuantity(self,quantity):
+        self.quantity = quantity
+
+    def testCost(self,cost):
+        self.cost = cost
+
+    def testResults(self,result):
+        self.result = result
+
+    def testdetails(self):
+        print("Test ID : \t\t\t\t%s"%self.testId,
+                "\nTest Name :\t\t\t\t%s"%self.name,
+                "\nTest Duration :\t\t\t%s days" %self.testDuration,
+                "\nSample Taken : \t\t\t%s" %self.sample,
+                "\nSample Quantity Taken : %s test tubes" %self.quantity,
+                "\nDate of test Request :\t%s"%self.date,
+                "\nTest Cost : \t\t\t%s"%self.cost,
+                "\nTest Status: \t\t\t%s"%self.teststatus,
+                "\nTest Details : \t\t\t%s"%self.result,
+                "\nDate of Test Delivery:  %s" %self.resultRetrivalDate)
+
+
+
+
+
+Login = LaboratoryClass()
+testObjCounter=dict()
+completedPatientsTestCount = dict()
+patientsList = list()
+testList = list()
+completedTests = list()
+incompleteTest = dict()
+def patientInfo():
+    identity = input("Enter new Patient's Id : ")
+    name = input("Enter new Patient's Name : ")
+    age = input("Enter new Patient's Age : ")
+    x = len(patientsList)
+    patientsList.append(Patients(identity,name,age))
+    patientsList[x].arrival()
+
+
+def generateId(y):
+    count = str(y+1)
+    uniqId = "LT"
+    testList[y].testId = uniqId+count
+
+
+def newTest():
+    y = int(len(testList))
+    testname = input("\nEnter test name : ")
+    testList.append(LabTests(testname))
+    patientsList[y].testRequest(testname)
+    testList[y].testDate()
+    generateId(y)
+    testObjCounter[testList[y].testId] = int(y)
+    sample = input("Enter Sample Taken : ")
+    testList[y].sampleType(sample)
+    quantity = input("Enter Sample Quantity (number of test tubes) : ")
+    testList[y].sampleQuantity(quantity)
+    duration = input("Enter test Duration : ")
+    testList[y].testDuration = duration
+    testcost = input("Enter Test cost")
+    patientsList[y].payment(testcost)
+    testList[y].testCost(testcost)
+    incompleteTest[testList[y].testId] = int(y)
+
+
+def lab_Result(var):
+    if var in incompleteTest:
+        detail = input("Enter Test Result in Detail : \n")
+        testList[incompleteTest[var]].testResults(detail)
+        testList[incompleteTest[var]].teststatus = "Complete"
+        patientsList[incompleteTest[var]].teststatus = "Complete"
+        completedTests.append(testList[incompleteTest[var]].testId)
+        completedPatientsTestCount[patientsList[incompleteTest[var]].name] = incompleteTest[var]
+        incompleteTest.pop(var)
+    else:
+        print("Test not Available")
+
+def retrival_Of_Report(namecheck):
+    if namecheck in completedPatientsTestCount:
+        y = completedPatientsTestCount[namecheck]
+        testList[y].resultRetrivalDate = time.strftime("%c")
+        testList[y].testdetails()
+    else:
+        print("Lab test not Available!!!")
+
+
+
+def home():
+    try:
+        task=int(input("\nPlease Choose from the Options Below\n1.New Test Request\n2.Enter Test Result Details \n3.Results Retrival\n4.LogOut\n\nEnter Choice :  "))
+    except:
+        print("\nPlease Enter A Numbers!!")
+        home()
+    if task == 1:
+        patientInfo()
+        newTest()
+        input("Press <Enter> to save!")
+        print("Data Saved!!")
+        home()
+
+    elif task == 2:
+        var = input("\nEnter Test Id : ")
+        lab_Result(var)
+        input("Press <Enter> to save!")
+        print("Data Saved!!")
+        home()
+
+    elif task == 3:
+        check = input("\nEnter Patient's Name : ")
+        retrival_Of_Report(check)
+        input("Press <Enter> to save!")
+        print("Data Saved")
+        home()
+    elif task == 4:
+        Login.logOut()
+    else:
+        print("\nInvalid Option\nPlease Enter a number Between 1 and 4!!!")
+        home()
+home()
+
+
+
+
+
+
+
+
+
