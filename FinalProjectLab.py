@@ -559,7 +559,7 @@ def patient_Details():
 
                     patient_Details()
 
-    if check in total_Patients_Dict:
+    elif check in total_Patients_Dict:
         y = int(total_Patients_Dict[check])
         patients_List[y].patientdetails()
     else:
@@ -584,7 +584,7 @@ def patient_Details():
 
                 patient_Details()
 
-        if response == '2':
+        elif response == '2':
             clear()
             patient_Details()
 
