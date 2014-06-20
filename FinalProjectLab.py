@@ -666,7 +666,7 @@ def home():
         technician.logOut()
 
     else:
-        print ("********  ERROR ************")
+        print ("*********  ERROR ************")
         print("\n******INVALID INPUT********\nPLEASE CHOOSE BETWEEN OPTION 1 - 5!!")
         home()
 clear()
